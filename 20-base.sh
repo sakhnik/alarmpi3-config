@@ -30,3 +30,15 @@ Welcome to Arch Linux ARM
 EOF
 
 CreateLink /etc/localtime /usr/share/zoneinfo/Europe/Kiev
+
+cat >"$(CreateFile /etc/hosts)" <<EOF
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+
+#<ip-address>	<hostname.domain.org>	<hostname>
+127.0.0.1	localhost.localdomain	localhost
+127.0.1.1	alarmpi3.localdomain	alarmpi3
+::1		localhost.localdomain	localhost
+
+# End of file
+EOF
