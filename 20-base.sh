@@ -1,3 +1,9 @@
+AddPackage glibc # GNU C Library
+
+
+CreateLink /etc/os-release ../usr/lib/os-release
+
+
 cat >"$(CreateFile /etc/vconsole.conf)" <<EOF
 FONT=LatArCyrHeb-16+
 EOF
