@@ -1,5 +1,8 @@
+IgnorePath '*/.git/*'
+IgnorePath '/boot/overlays/*'
 IgnorePath '/etc/ca-certificates/*'
 IgnorePath '/etc/opt/kerberosio/capture/*'
+IgnorePath '/etc/pacman.d/gnupg/*'
 IgnorePath '/etc/ssl/certs/*'
 IgnorePath '/opt/photos/*'
 IgnorePath '/srv/http/kerberos/app/storage/*'
