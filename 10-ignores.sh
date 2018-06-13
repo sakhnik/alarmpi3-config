@@ -1,4 +1,8 @@
 IgnorePath '*/.git/*'
+IgnorePath '/boot/*.bin'
+IgnorePath '/boot/*.dat'
+IgnorePath '/boot/*.dtb'
+IgnorePath '/boot/*.elf'
 IgnorePath '/boot/overlays/*'
 IgnorePath '/etc/ca-certificates/*'
 IgnorePath '/etc/ld.so.cache'
