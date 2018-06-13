@@ -39,6 +39,4 @@ AddPackage wget # Network utility to retrieve files from the Web
 AddPackage which # A utility to show the full path of commands
 
 
-AddPackage --foreign kerberosio-machinery # An image processing framework, which uses your USB-, IP- or RPi-camera to recognize events (e.g. motion).
-AddPackage --foreign kerberosio-web # Kerberos.io machinery
 AddPackage --foreign php-mcrypt # mcrypt module for PHP
