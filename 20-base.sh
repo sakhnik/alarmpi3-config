@@ -1,4 +1,38 @@
+AddPackage bash # The GNU Bourne Again shell
+AddPackage bash-completion # Programmable completion for the bash shell
+AddPackage coreutils # The basic file, shell and text manipulation utilities of the GNU operating system
+AddPackage device-mapper # Device mapper userspace library and tools
+AddPackage dhcpcd # RFC2131 compliant DHCP client daemon
+AddPackage f2fs-tools # Tools for Flash-Friendly File System (F2FS)
+AddPackage file # File type identification utility
+AddPackage filesystem # Base Arch Linux files
+AddPackage findutils # GNU utilities to locate files
 AddPackage glibc # GNU C Library
+AddPackage grep # A string search utility
+AddPackage gzip # GNU compression utility
+AddPackage haveged # Entropy harvesting daemon using CPU timings
+AddPackage jfsutils # JFS filesystem utilities
+AddPackage less # A terminal based program for viewing text files
+AddPackage logrotate # Rotates system logs automatically
+AddPackage licenses # Standard licenses distribution package
+AddPackage linux-firmware # Firmware files for Linux
+AddPackage linux-raspberrypi # The Linux Kernel and modules - Raspberry Pi
+AddPackage lvm2 # Logical Volume Manager 2 utilities
+AddPackage mdadm # A tool for managing/monitoring Linux md device arrays, also known as Software RAID
+AddPackage procps-ng # Utilities for monitoring your system and its processes
+AddPackage psmisc # Miscellaneous procfs tools
+AddPackage python # Next generation of the python high-level scripting language
+AddPackage raspberrypi-bootloader # Bootloader files for Raspberry Pi
+AddPackage raspberrypi-bootloader-x # Bootloader with extra codecs for Raspberry Pi
+AddPackage raspberrypi-firmware # Firmware tools, libraries, and headers for Raspberry Pi
+AddPackage reiserfsprogs # Reiserfs utilities
+AddPackage sed # GNU stream editor
+AddPackage shadow # Password and account management tool suite with support for shadow files and PAM
+AddPackage sysfsutils # System Utilities Based on Sysfs
+AddPackage tar # Utility used to store, backup, and transport files
+AddPackage texinfo # GNU documentation system for on-line information and printed output
+AddPackage util-linux # Miscellaneous system utilities for Linux
+AddPackage xfsprogs # XFS filesystem utilities
 
 
 CreateLink /etc/os-release ../usr/lib/os-release

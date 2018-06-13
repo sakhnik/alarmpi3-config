@@ -23,7 +23,6 @@ AddPackage mc # Midnight Commander is a text based filemanager/shell that emulat
 AddPackage nginx # Lightweight HTTP server and IMAP/POP3 proxy server
 AddPackage ninja # Small build system with a focus on speed
 AddPackage openssh # Free version of the SSH connectivity tools
-AddPackage openvpn # An easy-to-use, robust and highly configurable VPN (Virtual Private Network)
 AddPackage patch # A utility to apply patch files to original sources
 AddPackage pciutils # PCI bus configuration space access library and tools
 AddPackage perl # A highly capable, feature-rich programming language

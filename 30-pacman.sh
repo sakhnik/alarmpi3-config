@@ -1,7 +1,12 @@
+AddPackage archlinux-keyring # Arch Linux PGP keyring
+AddPackage fakeroot # Tool for simulating superuser privileges
 AddPackage pacman # A library-based package manager with dependency support
 AddPackage pacman-contrib # Contributed scripts and tools for pacman systems
 AddPackage pacman-mirrorlist # Arch Linux ARM mirror list for use by pacman
 AddPackage pacutils # Helper tools for libalpm
+AddPackage pkgconf # Package compiler and linker metadata toolkit
+AddPackage yajl # Yet Another JSON Library
+
 
 cat >"$(CreateFile /etc/pacman.d/hooks/paccache-remove.hook)" <<EOF
 [Trigger]

@@ -1,5 +1,6 @@
 IgnorePath '/etc/opt/kerberosio/logs/*'
 
+AddPackage --foreign ffmpeg2.8 # Complete solution to record, convert and stream audio and video
 AddPackage --foreign kerberosio-machinery # An image processing framework, which uses your USB-, IP- or RPi-camera to recognize events (e.g. motion).
 AddPackage --foreign kerberosio-web # Kerberos.io machinery
 
