@@ -34,3 +34,11 @@ CopyFile /etc/nginx/nginx.conf
 CreateLink /etc/systemd/system/multi-user.target.wants/nginx.service /usr/lib/systemd/system/nginx.service
 sed -i -f - "$(GetPackageOriginalFile mailcap /etc/nginx/mime.types)" <<EOF
 EOF
+
+
+AddPackage php-fpm # FastCGI Process Manager for PHP
+AddPackage php-gd # gd module for PHP
+CreateLink /etc/systemd/system/multi-user.target.wants/php-fpm.service /usr/lib/systemd/system/php-fpm.service
+sed -i -f - "$(GetPackageOriginalFile php /etc/php/php.ini)" <<EOF
+/^mail\.add_x_header/ s/Off/On/
+EOF

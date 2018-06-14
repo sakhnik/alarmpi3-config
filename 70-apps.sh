@@ -34,6 +34,3 @@ AddPackage vi # The original ex/vi text editor
 AddPackage vim # Vi Improved, a highly configurable, improved version of the vi text editor
 AddPackage wget # Network utility to retrieve files from the Web
 AddPackage which # A utility to show the full path of commands
-
-
-AddPackage --foreign php-mcrypt # mcrypt module for PHP
