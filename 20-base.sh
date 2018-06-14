@@ -76,3 +76,10 @@ cat >"$(CreateFile /etc/hosts)" <<EOF
 
 # End of file
 EOF
+
+CreateLink /opt/fsl/lib/libGAL_egl.so libGAL_egl.dri.so
+
+cat >"$(CreateFile /etc/udev/rules.d/raspberrypi.rules)" <<EOF
+SUBSYSTEM=="vchiq|input", MODE="0777"
+KERNEL=="mouse*|mice|event*",  MODE="0777"
+EOF
