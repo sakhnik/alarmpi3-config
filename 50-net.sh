@@ -19,3 +19,11 @@ sed -i -f - "$(GetPackageOriginalFile openssh /etc/ssh/sshd_config)" <<EOF
 EOF
 
 CreateLink /etc/systemd/system/multi-user.target.wants/sshd.service /usr/lib/systemd/system/sshd.service
+
+CreateFile /etc/iptables/iptables.rules > /dev/null
+CreateLink /etc/systemd/system/multi-user.target.wants/iptables.service /usr/lib/systemd/system/iptables.service
+
+AddPackage avahi # Service Discovery for Linux using mDNS/DNS-SD -- compatible with Bonjour
+CreateLink /etc/systemd/system/dbus-org.freedesktop.Avahi.service /usr/lib/systemd/system/avahi-daemon.service
+CreateLink /etc/systemd/system/multi-user.target.wants/avahi-daemon.service /usr/lib/systemd/system/avahi-daemon.service
+CreateLink /etc/systemd/system/sockets.target.wants/avahi-daemon.socket /usr/lib/systemd/system/avahi-daemon.socket
