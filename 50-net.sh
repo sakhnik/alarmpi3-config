@@ -42,3 +42,8 @@ CreateLink /etc/systemd/system/multi-user.target.wants/php-fpm.service /usr/lib/
 sed -i -f - "$(GetPackageOriginalFile php /etc/php/php.ini)" <<EOF
 /^mail\.add_x_header/ s/Off/On/
 EOF
+
+
+AddPackage postfix # Fast, easy to administer, secure mail server
+AddPackage s-nail # Mail processing system with a command syntax reminiscent of ed
+CreateLink /etc/systemd/system/multi-user.target.wants/postfix.service /usr/lib/systemd/system/postfix.service

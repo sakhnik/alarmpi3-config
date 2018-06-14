@@ -7,18 +7,26 @@ AddPackage f2fs-tools # Tools for Flash-Friendly File System (F2FS)
 AddPackage file # File type identification utility
 AddPackage filesystem # Base Arch Linux files
 AddPackage findutils # GNU utilities to locate files
+AddPackage flex # A tool for generating text-scanning programs
+AddPackage freetype2 # Font rasterization library
 AddPackage glibc # GNU C Library
 AddPackage grep # A string search utility
 AddPackage gzip # GNU compression utility
 AddPackage haveged # Entropy harvesting daemon using CPU timings
+AddPackage inetutils # A collection of common network programs
+AddPackage iproute2 # IP Routing Utilities
+AddPackage iputils # Network monitoring tools, including ping
 AddPackage jfsutils # JFS filesystem utilities
 AddPackage less # A terminal based program for viewing text files
-AddPackage logrotate # Rotates system logs automatically
+AddPackage libpng12 # A collection of routines used to create PNG format graphics files
 AddPackage licenses # Standard licenses distribution package
 AddPackage linux-firmware # Firmware files for Linux
 AddPackage linux-raspberrypi # The Linux Kernel and modules - Raspberry Pi
+AddPackage logrotate # Rotates system logs automatically
 AddPackage lvm2 # Logical Volume Manager 2 utilities
 AddPackage mdadm # A tool for managing/monitoring Linux md device arrays, also known as Software RAID
+AddPackage net-tools # Configuration tools for Linux networking
+AddPackage nss-mdns # glibc plugin providing host name resolution via mDNS
 AddPackage procps-ng # Utilities for monitoring your system and its processes
 AddPackage psmisc # Miscellaneous procfs tools
 AddPackage python # Next generation of the python high-level scripting language
@@ -32,6 +40,8 @@ AddPackage sysfsutils # System Utilities Based on Sysfs
 AddPackage tar # Utility used to store, backup, and transport files
 AddPackage texinfo # GNU documentation system for on-line information and printed output
 AddPackage util-linux # Miscellaneous system utilities for Linux
+AddPackage wireless_tools # Tools allowing to manipulate the Wireless Extensions
+AddPackage wpa_supplicant # A utility providing key negotiation for WPA wireless networks
 AddPackage xfsprogs # XFS filesystem utilities
 
 
