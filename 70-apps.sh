@@ -20,7 +20,6 @@ AddPackage make # GNU make utility to maintain groups of programs
 AddPackage man-db # A utility for reading man pages
 AddPackage man-pages # Linux man pages
 AddPackage mc # Midnight Commander is a text based filemanager/shell that emulates Norton Commander
-AddPackage nginx # Lightweight HTTP server and IMAP/POP3 proxy server
 AddPackage ninja # Small build system with a focus on speed
 AddPackage patch # A utility to apply patch files to original sources
 AddPackage pciutils # PCI bus configuration space access library and tools

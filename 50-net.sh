@@ -27,3 +27,10 @@ AddPackage avahi # Service Discovery for Linux using mDNS/DNS-SD -- compatible w
 CreateLink /etc/systemd/system/dbus-org.freedesktop.Avahi.service /usr/lib/systemd/system/avahi-daemon.service
 CreateLink /etc/systemd/system/multi-user.target.wants/avahi-daemon.service /usr/lib/systemd/system/avahi-daemon.service
 CreateLink /etc/systemd/system/sockets.target.wants/avahi-daemon.socket /usr/lib/systemd/system/avahi-daemon.socket
+
+
+AddPackage nginx # Lightweight HTTP server and IMAP/POP3 proxy server
+CopyFile /etc/nginx/nginx.conf
+CreateLink /etc/systemd/system/multi-user.target.wants/nginx.service /usr/lib/systemd/system/nginx.service
+sed -i -f - "$(GetPackageOriginalFile mailcap /etc/nginx/mime.types)" <<EOF
+EOF
