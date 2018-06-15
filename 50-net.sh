@@ -47,3 +47,33 @@ EOF
 AddPackage postfix # Fast, easy to administer, secure mail server
 AddPackage s-nail # Mail processing system with a command syntax reminiscent of ed
 CreateLink /etc/systemd/system/multi-user.target.wants/postfix.service /usr/lib/systemd/system/postfix.service
+
+
+AddPackage tinc # VPN (Virtual Private Network) daemon
+CreateLink /etc/systemd/system/multi-user.target.wants/tinc.service /usr/lib/systemd/system/tinc.service
+CreateLink /etc/systemd/system/tinc.service.wants/tinc@home.service /usr/lib/systemd/system/tinc@.service
+
+cat >"$(CreateFile /etc/tinc/home/tinc.conf)" <<EOF
+Name = alarmpi3
+AddressFamily = ipv4
+Device = /dev/net/tun
+EOF
+
+cat >"$(CreateFile /etc/tinc/home/tinc-up 755)" <<'EOF'
+#!/bin/sh
+
+ifconfig $INTERFACE 10.0.1.1 netmask 255.255.255.0
+EOF
+
+cat >"$(CreateFile /etc/tinc/home/tinc-down 755)" <<'EOF'
+#!/bin/sh
+
+ifconfig $INTERFACE down
+EOF
+
+CopyFile /etc/tinc/home/hosts/alarmpi3
+CopyFile /etc/tinc/home/hosts/kionia
+CopyFile /etc/tinc/home/hosts/land
+CopyFile /etc/tinc/home/hosts/potter
+DecryptFileTo /etc/tinc/home/rsa_key.priv.gpg /etc/tinc/home/rsa_key.priv
+SetFileProperty /etc/tinc/home/rsa_key.priv mode 600
