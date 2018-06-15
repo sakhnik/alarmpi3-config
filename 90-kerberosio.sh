@@ -13,5 +13,6 @@ CopyFile /etc/opt/kerberosio/config/io.xml
 CopyFile /etc/opt/kerberosio/config/stream.xml
 CopyFile /etc/opt/kerberosio/scripts/email.sh 755 sakhnik users
 CopyFile /etc/opt/kerberosio/scripts/mail.py
+DecryptFileTo /srv/http/kerberos/config/kerberos.php.gpg /srv/http/kerberos/config/kerberos.php
 
 CreateLink /etc/systemd/system/multi-user.target.wants/kerberosio.service /etc/systemd/system/kerberosio.service
