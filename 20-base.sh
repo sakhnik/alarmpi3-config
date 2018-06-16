@@ -20,8 +20,6 @@ AddPackage jfsutils # JFS filesystem utilities
 AddPackage less # A terminal based program for viewing text files
 AddPackage libpng12 # A collection of routines used to create PNG format graphics files
 AddPackage licenses # Standard licenses distribution package
-AddPackage linux-firmware # Firmware files for Linux
-AddPackage linux-raspberrypi # The Linux Kernel and modules - Raspberry Pi
 AddPackage logrotate # Rotates system logs automatically
 AddPackage lvm2 # Logical Volume Manager 2 utilities
 AddPackage mdadm # A tool for managing/monitoring Linux md device arrays, also known as Software RAID
@@ -30,9 +28,6 @@ AddPackage nss-mdns # glibc plugin providing host name resolution via mDNS
 AddPackage procps-ng # Utilities for monitoring your system and its processes
 AddPackage psmisc # Miscellaneous procfs tools
 AddPackage python # Next generation of the python high-level scripting language
-AddPackage raspberrypi-bootloader # Bootloader files for Raspberry Pi
-AddPackage raspberrypi-bootloader-x # Bootloader with extra codecs for Raspberry Pi
-AddPackage raspberrypi-firmware # Firmware tools, libraries, and headers for Raspberry Pi
 AddPackage reiserfsprogs # Reiserfs utilities
 AddPackage sed # GNU stream editor
 AddPackage shadow # Password and account management tool suite with support for shadow files and PAM
@@ -125,3 +120,16 @@ snd-bcm2835
 EOF
 
 IgnorePath '/etc/machine-id'  # Doesn't need to be persistent
+
+
+AddPackage linux-firmware # Firmware files for Linux
+AddPackage linux-raspberrypi # The Linux Kernel and modules - Raspberry Pi
+AddPackage raspberrypi-bootloader # Bootloader files for Raspberry Pi
+AddPackage raspberrypi-bootloader-x # Bootloader with extra codecs for Raspberry Pi
+AddPackage raspberrypi-firmware # Firmware tools, libraries, and headers for Raspberry Pi
+
+sed -i -f - "$(GetPackageOriginalFile linux-raspberrypi /boot/config.txt)" <<EOF
+s/^gpu_mem=64/gpu_mem=16/
+EOF
+SetFileProperty /boot/config.txt mode 755
+SetFileProperty /boot/cmdline.txt mode 755
