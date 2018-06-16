@@ -114,7 +114,14 @@ s/^#\( %wheel ALL=(ALL) ALL\)/\1/
 EOF
 
 IgnorePath '/etc/passwd.OLD'
+IgnorePath '/etc/.pwd.lock'
 CopyFile /etc/group
 CopyFile /etc/gshadow
 CopyFile /etc/passwd
 DecryptFileTo /etc/shadow.gpg /etc/shadow
+
+cat >"$(CreateFile /etc/modules-load.d/raspberrypi.conf)" <<EOF
+snd-bcm2835
+EOF
+
+IgnorePath '/etc/machine-id'  # Doesn't need to be persistent
