@@ -27,7 +27,6 @@ AddPackage perl # A highly capable, feature-rich programming language
 AddPackage rsync # A file transfer program to keep remote files in sync
 AddPackage socat # Multipurpose relay
 AddPackage stow # Manage installation of multiple softwares in the same directory tree
-AddPackage sudo # Give certain users the ability to run some commands as root
 AddPackage tmux # A terminal multiplexer
 AddPackage usbutils # USB Device Utilities
 AddPackage vi # The original ex/vi text editor

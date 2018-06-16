@@ -107,3 +107,8 @@ CreateLink /etc/systemd/user/sockets.target.wants/gpg-agent.socket /usr/lib/syst
 IgnorePath '/etc/.updated'
 CopyFile /etc/fstab
 CopyFile /etc/shells
+
+AddPackage sudo # Give certain users the ability to run some commands as root
+sed -i -f - "$(GetPackageOriginalFile sudo /etc/sudoers)" <<'EOF'
+s/^#\( %wheel ALL=(ALL) ALL\)/\1/
+EOF
