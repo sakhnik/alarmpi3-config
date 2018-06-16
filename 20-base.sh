@@ -133,3 +133,4 @@ s/^gpu_mem=64/gpu_mem=16/
 EOF
 SetFileProperty /boot/config.txt mode 755
 SetFileProperty /boot/cmdline.txt mode 755
+IgnorePath '/boot/initramfs-linux.img'
