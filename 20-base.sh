@@ -112,3 +112,9 @@ AddPackage sudo # Give certain users the ability to run some commands as root
 sed -i -f - "$(GetPackageOriginalFile sudo /etc/sudoers)" <<'EOF'
 s/^#\( %wheel ALL=(ALL) ALL\)/\1/
 EOF
+
+IgnorePath '/etc/passwd.OLD'
+CopyFile /etc/group
+CopyFile /etc/gshadow
+CopyFile /etc/passwd
+DecryptFileTo /etc/shadow.gpg /etc/shadow
