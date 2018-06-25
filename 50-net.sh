@@ -29,21 +29,6 @@ CreateLink /etc/systemd/system/multi-user.target.wants/avahi-daemon.service /usr
 CreateLink /etc/systemd/system/sockets.target.wants/avahi-daemon.socket /usr/lib/systemd/system/avahi-daemon.socket
 
 
-AddPackage nginx # Lightweight HTTP server and IMAP/POP3 proxy server
-CopyFile /etc/nginx/nginx.conf
-CreateLink /etc/systemd/system/multi-user.target.wants/nginx.service /usr/lib/systemd/system/nginx.service
-sed -i -f - "$(GetPackageOriginalFile mailcap /etc/nginx/mime.types)" <<EOF
-EOF
-
-
-AddPackage php-fpm # FastCGI Process Manager for PHP
-AddPackage php-gd # gd module for PHP
-CreateLink /etc/systemd/system/multi-user.target.wants/php-fpm.service /usr/lib/systemd/system/php-fpm.service
-sed -i -f - "$(GetPackageOriginalFile php /etc/php/php.ini)" <<EOF
-/^mail\.add_x_header/ s/Off/On/
-EOF
-
-
 AddPackage postfix # Fast, easy to administer, secure mail server
 AddPackage s-nail # Mail processing system with a command syntax reminiscent of ed
 CreateLink /etc/systemd/system/multi-user.target.wants/postfix.service /usr/lib/systemd/system/postfix.service
