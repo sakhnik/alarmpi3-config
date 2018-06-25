@@ -22,3 +22,9 @@ Name=eth0
 [Network]
 DHCP=yes
 EOF
+
+# Launch raspbian in a container for kerberosio
+CopyFile /etc/systemd/nspawn/raspbian.nspawn
+CreateLink /etc/systemd/system/machines.target.wants/systemd-nspawn@raspbian.service /usr/lib/systemd/system/systemd-nspawn@.service
+CreateLink /etc/systemd/system/multi-user.target.wants/machines.target /usr/lib/systemd/system/machines.target
+CopyFile /etc/systemd/system/systemd-nspawn@raspbian.service.d/override.conf

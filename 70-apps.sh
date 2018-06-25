@@ -7,6 +7,8 @@ AddPackage cmake # A cross-platform open-source make system
 AddPackage cower # A simple AUR agent with a pretentious name
 AddPackage crda # Central Regulatory Domain Agent for wireless networks
 AddPackage cryptsetup # Userspace setup tool for transparent encryption of block devices using dm-crypt
+AddPackage debian-archive-keyring # GnuPG archive keys of the Debian archive
+AddPackage debootstrap # Bootstrap a basic Debian system
 AddPackage dialog # A tool to display dialog boxes from shell scripts
 AddPackage diffutils # Utility programs used for creating patch files
 AddPackage e2fsprogs # Ext2/3/4 filesystem utilities

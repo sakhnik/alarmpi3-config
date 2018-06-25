@@ -1,0 +1,9 @@
+[Exec]
+Boot = true
+PrivateUsers = false
+
+[Network]
+VirtualEthernet = false
+
+[Files]
+Bind = /dev/video0
