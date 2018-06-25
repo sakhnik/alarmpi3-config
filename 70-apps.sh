@@ -18,6 +18,7 @@ AddPackage gcc # The GNU Compiler Collection - C and C++ frontends
 AddPackage gcc-libs # Runtime libraries shipped by GCC
 AddPackage gettext # GNU internationalization library
 AddPackage git # the fast distributed version control system
+AddPackage lynx # A text browser for the World Wide Web
 AddPackage make # GNU make utility to maintain groups of programs
 AddPackage man-db # A utility for reading man pages
 AddPackage man-pages # Linux man pages
@@ -30,8 +31,10 @@ AddPackage rsync # A file transfer program to keep remote files in sync
 AddPackage socat # Multipurpose relay
 AddPackage stow # Manage installation of multiple softwares in the same directory tree
 AddPackage tmux # A terminal multiplexer
+AddPackage unrar # The RAR uncompression program
 AddPackage usbutils # USB Device Utilities
 AddPackage vi # The original ex/vi text editor
 AddPackage vim # Vi Improved, a highly configurable, improved version of the vi text editor
+AddPackage w3m # Text-based Web browser as well as pager
 AddPackage wget # Network utility to retrieve files from the Web
 AddPackage which # A utility to show the full path of commands
