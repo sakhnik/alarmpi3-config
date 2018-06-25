@@ -132,5 +132,6 @@ sed -i -f - "$(GetPackageOriginalFile linux-raspberrypi /boot/config.txt)" <<EOF
 s/^gpu_mem=64/gpu_mem=16/
 EOF
 SetFileProperty /boot/config.txt mode 755
+sed -i -f - "$(GetPackageOriginalFile linux-raspberrypi /boot/cmdline.txt)" <<EOF
+EOF
 SetFileProperty /boot/cmdline.txt mode 755
-IgnorePath '/boot/initramfs-linux.img'
