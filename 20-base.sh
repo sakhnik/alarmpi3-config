@@ -129,7 +129,7 @@ AddPackage raspberrypi-bootloader-x # Bootloader with extra codecs for Raspberry
 AddPackage raspberrypi-firmware # Firmware tools, libraries, and headers for Raspberry Pi
 
 sed -i -f - "$(GetPackageOriginalFile linux-raspberrypi /boot/config.txt)" <<EOF
-s/^gpu_mem=64/gpu_mem=16/
+s/^gpu_mem=64/gpu_mem=128/
 EOF
 SetFileProperty /boot/config.txt mode 755
 sed -i -f - "$(GetPackageOriginalFile linux-raspberrypi /boot/cmdline.txt)" <<EOF
