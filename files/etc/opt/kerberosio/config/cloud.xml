@@ -2,10 +2,10 @@
 <clouds>
 
     <S3>
-        <bucket type="text"></bucket>
-        <folder type="text"></folder>
-        <publicKey type="text"></publicKey>
-        <privateKey type="text"></privateKey>
+        <bucket type="text"/>
+        <folder type="text"/>
+        <publicKey type="text"/>
+        <privateKey type="text"/>
     </S3>
     
 </clouds>

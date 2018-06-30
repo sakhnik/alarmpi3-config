@@ -8,3 +8,4 @@ VirtualEthernet = false
 [Files]
 Bind = /dev/video0
 Bind = /etc/opt/kerberosio
+Bind = /dev/vchiq
