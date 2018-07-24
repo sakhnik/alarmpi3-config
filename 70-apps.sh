@@ -27,11 +27,15 @@ AddPackage ninja # Small build system with a focus on speed
 AddPackage patch # A utility to apply patch files to original sources
 AddPackage pciutils # PCI bus configuration space access library and tools
 AddPackage perl # A highly capable, feature-rich programming language
+AddPackage perl-image-exiftool # Reader and rewriter of EXIF informations that supports raw files
 AddPackage rsync # A file transfer program to keep remote files in sync
+AddPackage smem # Generate reports on memory usage.
 AddPackage socat # Multipurpose relay
 AddPackage stow # Manage installation of multiple softwares in the same directory tree
 AddPackage tmux # A terminal multiplexer
+AddPackage tree # A directory listing program displaying a depth indented list of files
 AddPackage unrar # The RAR uncompression program
+AddPackage unzip # For extracting and viewing files in .zip archives
 AddPackage usbutils # USB Device Utilities
 AddPackage vi # The original ex/vi text editor
 AddPackage vim # Vi Improved, a highly configurable, improved version of the vi text editor
