@@ -50,3 +50,4 @@ kvm:x:996:
 transmission:x:169:
 git:x:995:
 render:x:994:
+rpc:x:32:
