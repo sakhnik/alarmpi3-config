@@ -62,3 +62,13 @@ CopyFile /etc/tinc/home/hosts/land
 CopyFile /etc/tinc/home/hosts/potter
 DecryptFileTo /etc/tinc/home/rsa_key.priv.gpg /etc/tinc/home/rsa_key.priv
 SetFileProperty /etc/tinc/home/rsa_key.priv mode 600
+
+
+AddPackage nfs-utils # Support programs for Network File Systems
+CreateLink /etc/systemd/system/multi-user.target.wants/nfs-server.service /usr/lib/systemd/system/nfs-server.service
+CreateDir /srv/nfs4/data
+cat >>"$(GetPackageOriginalFile nfs-utils /etc/exports)" <<EOF
+
+/srv/nfs4               *(ro,sync,fsid=0)
+/srv/nfs4/data          192.168.13.0/24(rw,sync,nohide)
+EOF
