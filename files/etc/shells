@@ -4,3 +4,5 @@
 /bin/sh
 /bin/bash
 /usr/bin/git-shell
+/bin/zsh
+/usr/bin/zsh

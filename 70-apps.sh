@@ -42,3 +42,4 @@ AddPackage vim # Vi Improved, a highly configurable, improved version of the vi 
 AddPackage w3m # Text-based Web browser as well as pager
 AddPackage wget # Network utility to retrieve files from the Web
 AddPackage which # A utility to show the full path of commands
+AddPackage zsh # A very advanced and programmable command interpreter (shell) for UNIX
