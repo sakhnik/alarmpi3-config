@@ -125,3 +125,36 @@ SetFileProperty /etc/tinc/farm/ed25519_key.priv mode 600
 DecryptFileTo /etc/tinc/farm/invitations/ed25519_key.priv.gpg /etc/tinc/farm/invitations/ed25519_key.priv
 SetFileProperty /etc/tinc/farm/invitations/ed25519_key.priv mode 600
 SetFileProperty /etc/tinc/farm/invitations mode 700
+
+
+# Tinc network beefarm
+CreateLink /etc/systemd/system/tinc.service.wants/tinc@beefarm.service /usr/lib/systemd/system/tinc@.service
+
+cat >"$(CreateFile /etc/tinc/beefarm/tinc.conf)" <<EOF
+Name = alarmpi3
+AddressFamily = ipv4
+Device = /dev/net/tun
+Interface = tinc-beefarm
+ExperimentalProtocol = no
+EOF
+
+cat >"$(CreateFile /etc/tinc/beefarm/tinc-up 755)" <<'EOF'
+#!/bin/sh
+
+ifconfig $INTERFACE 10.0.0.6 netmask 255.255.255.0
+EOF
+
+cat >"$(CreateFile /etc/tinc/beefarm/tinc-down 755)" <<'EOF'
+#!/bin/sh
+
+ifconfig $INTERFACE down
+EOF
+
+CopyFile /etc/tinc/beefarm/hosts/alarmpi3
+CopyFile /etc/tinc/beefarm/hosts/guard
+CopyFile /etc/tinc/beefarm/hosts/handy
+CopyFile /etc/tinc/beefarm/hosts/iryska
+CopyFile /etc/tinc/beefarm/hosts/kionia
+CopyFile /etc/tinc/beefarm/hosts/win
+DecryptFileTo /etc/tinc/beefarm/rsa_key.priv.gpg /etc/tinc/beefarm/rsa_key.priv
+SetFileProperty /etc/tinc/beefarm/rsa_key.priv mode 600
