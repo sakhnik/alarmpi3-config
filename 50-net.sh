@@ -51,48 +51,63 @@ CreateLink /etc/systemd/system/tinc.service.wants/tinc@home.service /usr/lib/sys
 
 cat >"$(CreateFile /etc/tinc/home/tinc.conf)" <<EOF
 Name = alarmpi3
-AddressFamily = ipv4
-Device = /dev/net/tun
+Interface = tinc-home
 EOF
 
 cat >"$(CreateFile /etc/tinc/home/tinc-up 755)" <<'EOF'
 #!/bin/sh
 
-ifconfig $INTERFACE 10.0.1.1 netmask 255.255.255.0
+# Interface will be configured in /etc/systemd/network/30-tinc-home.network
+
+#ifconfig $INTERFACE <your vpn IP address> netmask <netmask of whole VPN>
 EOF
 
-cat >"$(CreateFile /etc/tinc/home/tinc-down 755)" <<'EOF'
-#!/bin/sh
+cat >"$(CreateFile /etc/systemd/network/30-tinc-home.network)" <<EOF
+[Match]
+Name=tinc-home
 
-ifconfig $INTERFACE down
+[Network]
+Address=10.0.1.1/24
+LinkLocalAddressing=no
 EOF
 
 CopyFile /etc/tinc/home/hosts/alarmpi3
+CopyFile /etc/tinc/home/hosts/chbox
 CopyFile /etc/tinc/home/hosts/kionia
-CopyFile /etc/tinc/home/hosts/land
 CopyFile /etc/tinc/home/hosts/potter
-#DecryptFileTo /etc/tinc/home/rsa_key.priv.gpg /etc/tinc/home/rsa_key.priv
+CopyFile /etc/tinc/home/hosts/sania_lake
+CopyFile /etc/tinc/home/hosts/sania_lake2
+DecryptFileTo /etc/tinc/home/rsa_key.priv.gpg /etc/tinc/home/rsa_key.priv
 SetFileProperty /etc/tinc/home/rsa_key.priv mode 600
+DecryptFileTo /etc/tinc/home/ed25519_key.priv.gpg /etc/tinc/home/ed25519_key.priv
+SetFileProperty /etc/tinc/home/ed25519_key.priv mode 600
+DecryptFileTo /etc/tinc/home/invitations/ed25519_key.priv.gpg /etc/tinc/home/invitations/ed25519_key.priv
+SetFileProperty /etc/tinc/home/invitations/ed25519_key.priv mode 600
+SetFileProperty /etc/tinc/home/invitations mode 700
 
 # Tinc network farm
 CreateLink /etc/systemd/system/tinc.service.wants/tinc@farm.service /usr/lib/systemd/system/tinc@.service
 
 cat >"$(CreateFile /etc/tinc/farm/tinc.conf)" <<EOF
 Name = alarmpi3
-AddressFamily = ipv4
-Device = /dev/net/tun
+Interface = tinc-farm
 EOF
 
 cat >"$(CreateFile /etc/tinc/farm/tinc-up 755)" <<'EOF'
 #!/bin/sh
 
-ifconfig $INTERFACE 10.0.2.1 netmask 255.255.255.0
+# The interface will be configured in /etc/systemd/network/30-tinc-farm.network
+
+#ifconfig $INTERFACE <your vpn IP address> netmask <netmask of whole VPN>
 EOF
 
-cat >"$(CreateFile /etc/tinc/farm/tinc-down 755)" <<'EOF'
-#!/bin/sh
+cat >"$(CreateFile /etc/systemd/network/30-tinc-farm.network)" <<EOF
+[Match]
+Name=tinc-farm
 
-ifconfig $INTERFACE down
+[Network]
+Address=10.0.2.1/24
+LinkLocalAddressing=no
 EOF
 
 CopyFile /etc/tinc/farm/hosts/alarmpi3
@@ -107,3 +122,6 @@ DecryptFileTo /etc/tinc/farm/rsa_key.priv.gpg /etc/tinc/farm/rsa_key.priv
 SetFileProperty /etc/tinc/farm/rsa_key.priv mode 600
 DecryptFileTo /etc/tinc/farm/ed25519_key.priv.gpg /etc/tinc/farm/ed25519_key.priv
 SetFileProperty /etc/tinc/farm/ed25519_key.priv mode 600
+DecryptFileTo /etc/tinc/farm/invitations/ed25519_key.priv.gpg /etc/tinc/farm/invitations/ed25519_key.priv
+SetFileProperty /etc/tinc/farm/invitations/ed25519_key.priv mode 600
+SetFileProperty /etc/tinc/farm/invitations mode 700
