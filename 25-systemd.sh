@@ -15,7 +15,7 @@ cat >"$(CreateFile /etc/systemd/journald.conf.d/00-journal-size.conf)" <<EOF
 SystemMaxUse=50M
 EOF
 
-cat >"$(CreateFile /etc/systemd/network/eth0.network)" <<EOF
+cat >"$(CreateFile /etc/systemd/network/20-eth0.network)" <<EOF
 [Match]
 Name=eth0
 
