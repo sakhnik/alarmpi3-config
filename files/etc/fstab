@@ -4,4 +4,4 @@
 # <file system> <dir> <type> <options> <dump> <pass>
 /dev/mmcblk0p1  /boot   vfat    defaults        0       0
 
-UUID=96213c59-a992-4328-b8bb-4a1336be58ef  /mnt/sakhnik2   ext4   noauto,noatime 0 0
+/home/custompkgs /var/cache/pacman/custom none default,bind,ro 0 0

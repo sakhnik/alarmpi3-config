@@ -7,6 +7,8 @@ AddPackage pacutils # Helper tools for libalpm
 AddPackage pkgconf # Package compiler and linker metadata toolkit
 AddPackage yajl # Yet Another JSON Library
 
+AddPackage aurutils # helper tools for the arch user repository
+
 
 cat >"$(CreateFile /etc/pacman.d/hooks/paccache-remove.hook)" <<EOF
 [Trigger]
@@ -32,7 +34,9 @@ When = PostTransaction
 Exec = /usr/bin/paccache -rk2
 EOF
 
-#sed -i '/^## Ukraine/,/^$/ s/^#//' "$(GetPackageOriginalFile pacman-mirrorlist /etc/pacman.d/mirrorlist)"
+sed -i -f - "$(GetPackageOriginalFile pacman-mirrorlist /etc/pacman.d/mirrorlist)" <<'EOF'
+7 s|Server = .*|Server = http://de.mirror.archlinuxarm.org/$arch/$repo|
+EOF
 
 sed -i -f - "$(GetPackageOriginalFile pacman /etc/pacman.conf)" <<EOF
 /^#Color/ s/^#//
@@ -40,4 +44,7 @@ sed -i -f - "$(GetPackageOriginalFile pacman /etc/pacman.conf)" <<EOF
 /^#CheckSpace/ s/^#//
 /^#VerbosePkgLists/ s/^#//
 /VerbosePkgLists/ a ILoveCandy
+/^#CacheDir/ s/^#//
+/^CacheDir/ a\CacheDir    = /var/cache/pacman/custom/
+/#\[custom\]/,+2 s/^#//
 EOF
