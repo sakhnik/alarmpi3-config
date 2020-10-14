@@ -71,7 +71,7 @@ CopyFile /etc/tinc/home/hosts/alarmpi3
 CopyFile /etc/tinc/home/hosts/kionia
 CopyFile /etc/tinc/home/hosts/land
 CopyFile /etc/tinc/home/hosts/potter
-DecryptFileTo /etc/tinc/home/rsa_key.priv.gpg /etc/tinc/home/rsa_key.priv
+#DecryptFileTo /etc/tinc/home/rsa_key.priv.gpg /etc/tinc/home/rsa_key.priv
 SetFileProperty /etc/tinc/home/rsa_key.priv mode 600
 
 # Tinc network farm
@@ -96,7 +96,14 @@ ifconfig $INTERFACE down
 EOF
 
 CopyFile /etc/tinc/farm/hosts/alarmpi3
+CopyFile /etc/tinc/farm/hosts/chbox
+CopyFile /etc/tinc/farm/hosts/iryska
 CopyFile /etc/tinc/farm/hosts/kionia
 CopyFile /etc/tinc/farm/hosts/pangea
+CopyFile /etc/tinc/farm/hosts/ustia
+CopyFile /etc/tinc/farm/hosts/venus
+CopyFile /etc/tinc/farm/hosts/w10
 DecryptFileTo /etc/tinc/farm/rsa_key.priv.gpg /etc/tinc/farm/rsa_key.priv
 SetFileProperty /etc/tinc/farm/rsa_key.priv mode 600
+DecryptFileTo /etc/tinc/farm/ed25519_key.priv.gpg /etc/tinc/farm/ed25519_key.priv
+SetFileProperty /etc/tinc/farm/ed25519_key.priv mode 600
