@@ -22,27 +22,3 @@ Name=eth0
 [Network]
 DHCP=yes
 EOF
-
-# Launch raspbian in a container for kerberosio
-CopyFile /etc/systemd/nspawn/raspbian.nspawn
-CreateLink /etc/systemd/system/machines.target.wants/systemd-nspawn@raspbian.service /usr/lib/systemd/system/systemd-nspawn@.service
-CreateLink /etc/systemd/system/multi-user.target.wants/machines.target /usr/lib/systemd/system/machines.target
-CopyFile /etc/systemd/system/systemd-nspawn@raspbian.service.d/override.conf
-
-# Kerberosio in the Raspbian
-IgnorePath '/etc/opt/kerberosio/logs/*'
-
-CopyFile /etc/opt/kerberosio/config/algorithm.xml 777
-CopyFile /etc/opt/kerberosio/config/capture.xml 777
-CopyFile /etc/opt/kerberosio/config/cloud.xml 777
-CopyFile /etc/opt/kerberosio/config/condition.xml 777
-CopyFile /etc/opt/kerberosio/config/config.xml 777
-CopyFile /etc/opt/kerberosio/config/expositor.xml 777
-CopyFile /etc/opt/kerberosio/config/heuristic.xml 777
-CopyFile /etc/opt/kerberosio/config/io.xml 777
-CopyFile /etc/opt/kerberosio/config/stream.xml 777
-IgnorePath '/etc/opt/kerberosio/scripts/run.sh'
-CopyFile /etc/opt/kerberosio/scripts/email.sh 755
-CopyFile /etc/opt/kerberosio/scripts/mail.py
-CreateDir /etc/opt/kerberosio/h264 777
-CreateDir /etc/opt/kerberosio/symbols 777
