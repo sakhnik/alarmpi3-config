@@ -155,3 +155,11 @@ CopyFile /etc/tinc/beefarm/hosts/kionia
 CopyFile /etc/tinc/beefarm/hosts/win
 DecryptFileTo /etc/tinc/beefarm/rsa_key.priv.gpg /etc/tinc/beefarm/rsa_key.priv
 SetFileProperty /etc/tinc/beefarm/rsa_key.priv mode 600
+
+# n2n
+AddPackage n2n # A Peer-to-peer VPN software which makes it easy to create virtual networks bypassing intermediate firewalls
+CreateLink /etc/systemd/system/multi-user.target.wants/supernode.service /usr/lib/systemd/system/supernode.service
+
+sed -i -f - "$(GetPackageOriginalFile n2n /etc/n2n/supernode.conf)" <<EOF
+/# -l=/ s/^.*$/ -l=7777/
+EOF
