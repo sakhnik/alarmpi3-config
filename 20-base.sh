@@ -82,8 +82,6 @@ cat >"$(CreateFile /etc/hosts)" <<EOF
 # End of file
 EOF
 
-CreateLink /opt/fsl/lib/libGAL_egl.so libGAL_egl.dri.so
-
 cat >"$(CreateFile /etc/udev/rules.d/raspberrypi.rules)" <<EOF
 SUBSYSTEM=="vchiq|input", MODE="0777"
 KERNEL=="mouse*|mice|event*",  MODE="0777"
@@ -113,7 +111,7 @@ IgnorePath '/etc/.pwd.lock'
 CopyFile /etc/group
 CopyFile /etc/gshadow
 CopyFile /etc/passwd
-DecryptFileTo /etc/shadow.gpg /etc/shadow
+#DecryptFileTo /etc/shadow.gpg /etc/shadow
 
 cat >"$(CreateFile /etc/modules-load.d/raspberrypi.conf)" <<EOF
 snd-bcm2835
@@ -132,6 +130,4 @@ sed -i -f - "$(GetPackageOriginalFile linux-raspberrypi /boot/config.txt)" <<EOF
 s/^gpu_mem=64/gpu_mem=128/
 EOF
 SetFileProperty /boot/config.txt mode 755
-sed -i -f - "$(GetPackageOriginalFile linux-raspberrypi /boot/cmdline.txt)" <<EOF
-EOF
 SetFileProperty /boot/cmdline.txt mode 755
