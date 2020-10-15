@@ -14,8 +14,9 @@ EOF
 AddPackage openssh # Free version of the SSH connectivity tools
 IgnorePath '/etc/ssh/ssh_host_*'
 
-sed -i -f - "$(GetPackageOriginalFile openssh /etc/ssh/sshd_config)" <<EOF
+sed -i -f - "$(GetPackageOriginalFile openssh /etc/ssh/sshd_config)" <<'EOF'
 /^#GatewayPorts/ s/^.*$/GatewayPorts clientspecified/
+/^#\?X11Forwarding/ s/^.*$/X11Forwarding yes/
 EOF
 
 CreateLink /etc/systemd/system/multi-user.target.wants/sshd.service /usr/lib/systemd/system/sshd.service
