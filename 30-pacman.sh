@@ -5,6 +5,7 @@ AddPackage pacman-contrib # Contributed scripts and tools for pacman systems
 AddPackage pacman-mirrorlist # Arch Linux ARM mirror list for use by pacman
 AddPackage pacutils # Helper tools for libalpm
 AddPackage pkgconf # Package compiler and linker metadata toolkit
+AddPackage vifm # A file manager with curses interface, which provides Vi[m]-like environment
 AddPackage yajl # Yet Another JSON Library
 
 AddPackage aurutils # helper tools for the arch user repository

@@ -131,3 +131,8 @@ s/^gpu_mem=64/gpu_mem=128/
 EOF
 SetFileProperty /boot/config.txt mode 755
 SetFileProperty /boot/cmdline.txt mode 755
+
+# Cron
+AddPackage cronie # Daemon that runs specified programs at scheduled times and related tools
+CreateLink /etc/systemd/system/multi-user.target.wants/cronie.service /usr/lib/systemd/system/cronie.service
+CreateFile /etc/crontab > /dev/null

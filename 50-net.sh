@@ -1,3 +1,5 @@
+AddPackage ipset # Administration tool for IP sets
+AddPackage iwd # Internet Wireless Daemon
 AddPackage samba # SMB Fileserver and AD Domain server
 
 CopyFile /etc/samba/smb.conf
@@ -27,10 +29,6 @@ CreateLink /etc/systemd/system/multi-user.target.wants/avahi-daemon.service /usr
 CreateLink /etc/systemd/system/sockets.target.wants/avahi-daemon.socket /usr/lib/systemd/system/avahi-daemon.socket
 
 
-AddPackage postfix # Fast, easy to administer, secure mail server
-AddPackage s-nail # Mail processing system with a command syntax reminiscent of ed
-CreateLink /etc/systemd/system/multi-user.target.wants/postfix.service /usr/lib/systemd/system/postfix.service
-
 AddPackage nfs-utils # Support programs for Network File Systems
 CreateLink /etc/systemd/system/multi-user.target.wants/nfs-server.service /usr/lib/systemd/system/nfs-server.service
 CreateDir /srv/nfs4/data
@@ -41,7 +39,7 @@ cat >>"$(GetPackageOriginalFile nfs-utils /etc/exports)" <<EOF
 EOF
 
 
-AddPackage tinc # VPN (Virtual Private Network) daemon
+AddPackage tinc-pre # VPN (Virtual Private Network) daemon
 CreateLink /etc/systemd/system/multi-user.target.wants/tinc.service /usr/lib/systemd/system/tinc.service
 
 # Tinc network home

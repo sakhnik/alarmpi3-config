@@ -1,6 +1,7 @@
 IgnorePath '/etc/firewalld/*.old'
 IgnorePath '/etc/firewalld/**/*.old'
 
+AddPackage ebtables # Ethernet bridge filtering utilities
 AddPackage firewalld # Firewall daemon with D-Bus interface
 
 CreateLink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service /usr/lib/systemd/system/firewalld.service
