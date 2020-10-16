@@ -111,7 +111,7 @@ IgnorePath '/etc/.pwd.lock'
 CopyFile /etc/group
 CopyFile /etc/gshadow
 CopyFile /etc/passwd
-#DecryptFileTo /etc/shadow.gpg /etc/shadow
+DecryptFileTo /etc/shadow.gpg /etc/shadow
 
 cat >"$(CreateFile /etc/modules-load.d/raspberrypi.conf)" <<EOF
 snd-bcm2835
