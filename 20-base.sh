@@ -21,12 +21,14 @@ AddPackage less # A terminal based program for viewing text files
 AddPackage libpng12 # A collection of routines used to create PNG format graphics files
 AddPackage licenses # Standard licenses distribution package
 AddPackage logrotate # Rotates system logs automatically
+AddPackage lsof # Lists open files for running Unix processes
 AddPackage lvm2 # Logical Volume Manager 2 utilities
 AddPackage mdadm # A tool for managing/monitoring Linux md device arrays, also known as Software RAID
 AddPackage net-tools # Configuration tools for Linux networking
 AddPackage nss-mdns # glibc plugin providing host name resolution via mDNS
 AddPackage procps-ng # Utilities for monitoring your system and its processes
 AddPackage psmisc # Miscellaneous procfs tools
+AddPackage pyenv # Easily switch between multiple versions of Python
 AddPackage python # Next generation of the python high-level scripting language
 AddPackage reiserfsprogs # Reiserfs utilities
 AddPackage sed # GNU stream editor

@@ -9,6 +9,7 @@ CreateLink /etc/systemd/system/multi-user.target.wants/systemd-networkd.service 
 CreateLink /etc/systemd/system/multi-user.target.wants/systemd-resolved.service /usr/lib/systemd/system/systemd-resolved.service
 CreateLink /etc/systemd/system/sockets.target.wants/systemd-networkd.socket /usr/lib/systemd/system/systemd-networkd.socket
 CreateLink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service /usr/lib/systemd/system/systemd-timesyncd.service
+CreateLink /etc/systemd/user/sockets.target.wants/p11-kit-server.socket /usr/lib/systemd/user/p11-kit-server.socket
 
 cat >"$(CreateFile /etc/systemd/journald.conf.d/00-journal-size.conf)" <<EOF
 [Journal]
